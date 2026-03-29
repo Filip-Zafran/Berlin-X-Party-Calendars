@@ -155,6 +155,10 @@ export default function AdminLogin() {
           >
             {submitting ? 'Signing in...' : 'Sign in'}
           </button>
+
+          <Link to="/admin/signup" className="text-sm underline">
+  Create account
+</Link>
         </form>
       </div>
     </div>
