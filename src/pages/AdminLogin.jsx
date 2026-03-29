@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Navigate, useLocation, useNavigate } from 'react-router-dom';
+import { Navigate, useLocation, useNavigate, Link } from 'react-router-dom';
 import { LockKeyhole, Mail } from 'lucide-react';
 import StatusMessage from '../components/StatusMessage';
 import { useAuth } from '../contexts/AuthContext';
@@ -24,6 +24,30 @@ export default function AdminLogin() {
     return (
       <div className="flex min-h-screen items-center justify-center px-4 text-white">
         <div className="w-full max-w-lg rounded-[2rem] border border-white/10 bg-white/5 p-6 shadow-2xl backdrop-blur-sm">
+          <div className="mb-4 flex gap-2">
+            <Link
+              to="/"
+              className={`px-4 py-2 rounded-full text-sm ${
+                location.pathname === '/'
+                  ? 'bg-white text-black'
+                  : 'bg-white/10 text-white/70 hover:bg-white/20'
+              }`}
+            >
+              Home
+            </Link>
+
+            <Link
+              to="/admin"
+              className={`px-4 py-2 rounded-full text-sm ${
+                location.pathname.startsWith('/admin')
+                  ? 'bg-white text-black'
+                  : 'bg-white/10 text-white/70 hover:bg-white/20'
+              }`}
+            >
+              Admin
+            </Link>
+          </div>
+
           <h1 className="text-2xl font-semibold">Set up Supabase first</h1>
           <p className="mt-3 text-sm leading-7 text-white/70">
             Add your VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY to .env, restart the dev server, and try again.
@@ -63,6 +87,30 @@ export default function AdminLogin() {
   return (
     <div className="flex min-h-screen items-center justify-center px-4 py-8 text-white">
       <div className="w-full max-w-md rounded-[2rem] border border-white/10 bg-white/5 p-6 shadow-2xl backdrop-blur-sm">
+        <div className="mb-4 flex gap-2">
+          <Link
+            to="/"
+            className={`px-4 py-2 rounded-full text-sm ${
+              location.pathname === '/'
+                ? 'bg-white text-black'
+                : 'bg-white/10 text-white/70 hover:bg-white/20'
+            }`}
+          >
+            Home
+          </Link>
+
+          <Link
+            to="/admin"
+            className={`px-4 py-2 rounded-full text-sm ${
+              location.pathname.startsWith('/admin')
+                ? 'bg-white text-black'
+                : 'bg-white/10 text-white/70 hover:bg-white/20'
+            }`}
+          >
+            Admin
+          </Link>
+        </div>
+
         <span className="inline-flex rounded-full border border-white/10 bg-white/6 px-3 py-1 text-xs uppercase tracking-[0.2em] text-white/60">
           Organizer access
         </span>

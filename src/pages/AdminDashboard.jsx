@@ -7,6 +7,7 @@ import EventForm from '../components/EventForm';
 import EventTable from '../components/EventTable';
 import CalendarPreview from '../components/CalendarPreview';
 import StatusMessage from '../components/StatusMessage';
+import { Link, useLocation } from 'react-router-dom';
 
 export default function AdminDashboard() {
   const { user } = useAuth();
@@ -71,6 +72,29 @@ export default function AdminDashboard() {
 
   return (
     <div className="min-h-screen px-4 py-5 text-white md:px-6 lg:px-8">
+      <div className="mb-4 flex gap-2">
+  <Link
+    to="/"
+    className={`px-4 py-2 rounded-full text-sm ${
+      location.pathname === '/'
+        ? 'bg-white text-black'
+        : 'bg-white/10 text-white/70 hover:bg-white/20'
+    }`}
+  >
+    Home
+  </Link>
+
+  <Link
+    to="/admin"
+    className={`px-4 py-2 rounded-full text-sm ${
+      location.pathname.startsWith('/admin')
+        ? 'bg-white text-black'
+        : 'bg-white/10 text-white/70 hover:bg-white/20'
+    }`}
+  >
+    Admin
+  </Link>
+</div>
       <div className="mx-auto max-w-7xl space-y-5">
         <header className="rounded-[2rem] border border-white/10 bg-white/5 p-6 shadow-2xl backdrop-blur-sm">
           <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
